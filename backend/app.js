@@ -8,12 +8,14 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(cors({ origin: ['http://localhost:5173'] }))
+app.use(
+    cors({ origin: ['http://localhost:5173', 'https://meddel.netlify.app'] })
+)
 
 app.use('/api/shops', shopsRouter)
 app.use('/api/orders', ordersRouter)
 
-app.use('*', (err, res, next) => {
+app.use('*', (req, res, next) => {
     res.status(404).send('Page not found')
 })
 
