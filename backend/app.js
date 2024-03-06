@@ -9,7 +9,9 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(
-    cors({ origin: ['http://localhost:5173', 'https://meddel.netlify.app'] })
+    cors({
+        origin: ['http://localhost:5173', 'https://main--meddel.netlify.app'],
+    })
 )
 
 app.use('/api/shops', shopsRouter)
