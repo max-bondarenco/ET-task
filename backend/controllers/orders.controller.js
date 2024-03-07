@@ -18,9 +18,9 @@ export const createOrder = catchAsync(async (req, res, next) => {
         return next(new AppError(400, 'ReCaptcha failure'))
 
     const order = await Order.create({
-        name,
+        name: `${name}`.toLowerCase(),
         total,
-        email,
+        email: `${email}`.toLowerCase(),
         phone,
         address,
         items,

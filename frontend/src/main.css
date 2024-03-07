@@ -373,8 +373,6 @@ a.active {
 }
 
 .history-item-list {
-    align-items: center;
-    justify-content: center;
     overflow-x: scroll;
     white-space: nowrap;
     padding: 15px;
