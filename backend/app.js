@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(
     cors({
-        origin: ['http://localhost:5173', 'https://main--meddel.netlify.app'],
+        origin: ['http://localhost:5173', 'https://meddel.netlify.app'],
     })
 )
 
