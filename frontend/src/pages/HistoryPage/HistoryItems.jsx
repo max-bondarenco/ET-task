@@ -3,18 +3,21 @@ import HistoryDrugCard from './HistoryDrugCard'
 
 const HistoryItems = ({ history }) => {
     return (
-        <div>
+        <div className="history-wrapper">
             {history.map((item) => (
-                <div key={item._id}>
-                    <div>
-                        <p>{item.email}</p>
-                        <p>{item.createdAt}</p>
+                <div className="history-items" key={item._id}>
+                    <div className="history-item-info">
+                        <p>Total price - {item.total} uah</p>
+                        <p>
+                            Order date -{' '}
+                            {new Date(item.createdAt).toLocaleDateString()}
+                        </p>
                     </div>
-                    {item.items.map((drug) => (
-                        <div key={drug._id}>
-                            <HistoryDrugCard drug={drug} />{' '}
-                        </div>
-                    ))}
+                    <div className="history-item-list">
+                        {item.items.map((drug) => (
+                            <HistoryDrugCard key={drug._id} drug={drug} />
+                        ))}
+                    </div>
                 </div>
             ))}
         </div>

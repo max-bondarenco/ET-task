@@ -37,6 +37,6 @@ export const getOrders = catchAsync(async (req, res, next) => {
     const { email } = req.params
     if (!email) return next(new AppError(400, 'Please provide an email'))
 
-    const orders = await Order.find({ email })
+    const orders = await Order.find({ email }).sort({ createdAt: -1 })
     res.status(200).json({ success: true, data: orders })
 })

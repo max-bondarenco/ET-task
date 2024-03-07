@@ -21,21 +21,23 @@ const HistoryForm = ({ setHistory }) => {
         }
     }
 
-    if (loading) return <Loader />
-
     return (
-        <div>
-            <form onSubmit={handleFormSubmit}>
-                <label htmlFor="name">Введіть електронну пошту</label>
-                <input
-                    required
-                    ref={emailRef}
-                    id="email"
-                    type="email"
-                    name="email"
-                />
-                <button type="submit">Отримати історію замовлень</button>
-            </form>
+        <div className="history-form">
+            {loading ? (
+                <Loader />
+            ) : (
+                <form onSubmit={handleFormSubmit}>
+                    <input
+                        required
+                        ref={emailRef}
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="email"
+                    />
+                    <button type="submit">Get order history</button>
+                </form>
+            )}
         </div>
     )
 }

@@ -6,7 +6,7 @@ const HistoryPage = () => {
     const [history, setHistory] = useState([])
 
     return (
-        <section>
+        <section className="history">
             <HistoryForm setHistory={setHistory} />
             <HistoryItems history={history} />
         </section>

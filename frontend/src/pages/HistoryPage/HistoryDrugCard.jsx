@@ -2,14 +2,15 @@ import { object } from 'prop-types'
 
 const HistoryDrugCard = ({ drug }) => {
     return (
-        <div>
-            <div>
-                <img src={drug.image} />
+        <div className="list-item">
+            <div className="list-item-image">
+                <img src={drug.image || '/default.jpg'} />
             </div>
-            <div>
-                <p>{drug.price} uah</p>
-                <p>{drug.name}</p>
-                <p>{drug.count}</p>
+            <div className="list-item-info">
+                <h3>
+                    {drug.count} {drug.name}
+                </h3>
+                <p>{drug.price * drug.count} uah</p>
             </div>
         </div>
     )

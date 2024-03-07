@@ -33,7 +33,7 @@ const CartForm = () => {
         try {
             await axios.post(
                 '/orders/',
-                { ...formData, items: cartItems, captcha: token },
+                { ...formData, items: cartItems, total, captcha: token },
                 {
                     headers: {
                         'Content-Type': 'application/json',
