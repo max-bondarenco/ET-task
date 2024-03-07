@@ -4,7 +4,7 @@ import Order from '../models/orders.model.js'
 import axios from 'axios'
 
 export const createOrder = catchAsync(async (req, res, next) => {
-    const { name, email, phone, address, items, captcha } = req.body
+    const { name, email, phone, address, total, items, captcha } = req.body
     if (!email) return next(new AppError(400, 'Please provide an email'))
     if (!items || items.length === 0)
         return next(
@@ -17,7 +17,14 @@ export const createOrder = catchAsync(async (req, res, next) => {
     if (!axiosRes.data.success)
         return next(new AppError(400, 'ReCaptcha failure'))
 
-    const order = await Order.create({ name, email, phone, address, items })
+    const order = await Order.create({
+        name,
+        total,
+        email,
+        phone,
+        address,
+        items,
+    })
     res.status(201).json({ success: true, data: order })
 })
 

@@ -5,6 +5,9 @@ const orderSchema = new mongoose.Schema(
         items: {
             type: Object,
         },
+        total: {
+            type: Number,
+        },
         email: {
             type: String,
             required: true,
