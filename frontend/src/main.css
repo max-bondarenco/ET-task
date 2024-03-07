@@ -57,49 +57,25 @@ body,
     height: 100%;
 }
 
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    overflow: hidden;
-    overflow-y: auto;
-    z-index: 10;
-}
-
-.modal-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100%;
-}
-
-.modal-content {
-    position: relative;
-    margin: 20px;
-    width: 100%;
-    max-width: 600px;
-    border-radius: 20px;
-    background-color: white;
-    padding: 40px 20px 20px 20px;
-}
-
-.modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
+.icon {
     width: 30px;
     height: 30px;
-    padding: 0;
-    background-color: transparent;
-    border: none;
+    justify-self: center;
+    align-self: center;
 }
+
+a {
+    color: gray;
+}
+
+a.active {
+    color: black;
+    > div {
+        background-color: aliceblue;
+    }
+}
+
+/* Header */
 
 .header {
     position: sticky;
@@ -132,7 +108,10 @@ body,
     height: 100%;
 }
 
-.shop {
+/* Shop page */
+
+.shop,
+.cart {
     display: flex;
     padding: 0;
     background-color: antiquewhite;
@@ -164,13 +143,6 @@ body,
     > label {
         color: gray;
     }
-}
-
-.icon {
-    width: 30px;
-    height: 30px;
-    justify-self: center;
-    align-self: center;
 }
 
 .shop-list {
@@ -248,13 +220,100 @@ body,
     }
 }
 
-a {
-    color: gray;
+/* Cart page */
+
+.cart-form-wrapper {
+    padding: 5px;
+    width: 15%;
+    min-width: 300px;
+    border-right: 5px solid gray;
 }
 
-a.active {
-    color: black;
-    > div {
-        background-color: aliceblue;
+.cart-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-input {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+
+    label {
+        justify-self: end;
+    }
+
+    input {
+        justify-self: center;
     }
 }
+
+.cart-submit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+
+    p {
+        font-size: larger;
+        justify-self: center;
+        align-self: center;
+    }
+}
+
+.cart-items {
+    padding: 20px;
+    gap: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cart-item {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-item-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 20px;
+
+    > img {
+        width: 100%;
+        border-radius: 20px;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.cart-item-info {
+    padding: 5px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 3fr 1fr 1fr;
+
+    input {
+        border: 1px solid gray;
+        border-radius: 20px;
+        text-align: center;
+    }
+}
+
+.cart-item-description {
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    text-align: center;
+}
+
+/*  */

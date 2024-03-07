@@ -48,10 +48,10 @@ const CartForm = () => {
     }
 
     return (
-        <div>
-            {cartItems.length !== 0 ? (
-                <form onSubmit={handleCartSubmit}>
-                    <div>
+        <div className="cart-form-wrapper">
+            <form className="cart-form" onSubmit={handleCartSubmit}>
+                <div className="cart-inputs">
+                    <div className="cart-input">
                         <label htmlFor="name">Name:</label>
                         <input
                             onChange={handleInputChange}
@@ -61,6 +61,8 @@ const CartForm = () => {
                             name="name"
                             id="name"
                         />
+                    </div>
+                    <div className="cart-input">
                         <label htmlFor="email">Email:</label>
                         <input
                             onChange={handleInputChange}
@@ -70,6 +72,8 @@ const CartForm = () => {
                             name="email"
                             id="email"
                         />
+                    </div>
+                    <div className="cart-input">
                         <label htmlFor="phone">Phone:</label>
                         <input
                             onChange={handleInputChange}
@@ -79,6 +83,8 @@ const CartForm = () => {
                             name="phone"
                             id="phone"
                         />
+                    </div>
+                    <div className="cart-input">
                         <label htmlFor="address">Address:</label>
                         <input
                             onChange={handleInputChange}
@@ -89,17 +95,15 @@ const CartForm = () => {
                             id="address"
                         />
                     </div>
-                    <div>
-                        <p>Total price: {total} uah</p>
-                        <ReCaptcha callback={recaptchaCallback} />
-                        <button disabled={!token} type="submit">
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            ) : (
-                <div>Cart is empty</div>
-            )}
+                </div>
+                <div className="cart-submit">
+                    <p>Total price: {total} uah</p>
+                    <ReCaptcha callback={recaptchaCallback} />
+                    <button disabled={!token} type="submit">
+                        Place order
+                    </button>
+                </div>
+            </form>
         </div>
     )
 }

@@ -3,11 +3,9 @@ import CartItems from './CartItems'
 
 const CartPage = () => {
     return (
-        <section>
-            <div>
-                <CartForm />
-                <CartItems />
-            </div>
+        <section className="cart">
+            <CartForm />
+            <CartItems />
         </section>
     )
 }

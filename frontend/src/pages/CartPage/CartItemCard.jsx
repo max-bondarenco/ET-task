@@ -1,18 +1,25 @@
 import { object } from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { changeCount, removeCartItem } from '../../../redux/cartSlice/cartSlice'
+import { BsCartXFill } from 'react-icons/bs'
 
 const CartItemCard = ({ drug }) => {
     const dispatch = useDispatch()
 
     return (
-        <div>
-            <div>
-                <img src={drug.image} />
+        <div className="cart-item">
+            <div className="cart-item-image">
+                <img src={drug.image || '/default.jpg'} />
             </div>
-            <div>
-                <p>{drug.name}</p>
-                <p>Price: {drug.price * drug.count}</p>
+            <div className="cart-item-info">
+                <div className="cart-item-description">
+                    <h3>{drug.name}</h3>
+                    <p>Price: {drug.price * drug.count}</p>
+                </div>
+                <BsCartXFill
+                    className="icon"
+                    onClick={() => dispatch(removeCartItem(drug._id))}
+                />
                 <input
                     type="number"
                     onChange={(e) =>
@@ -25,11 +32,9 @@ const CartItemCard = ({ drug }) => {
                     }
                     defaultValue={drug.count}
                     min="1"
+                    max="999"
                     step="1"
                 />
-                <button onClick={() => dispatch(removeCartItem(drug._id))}>
-                    Remove from cart
-                </button>
             </div>
         </div>
     )
